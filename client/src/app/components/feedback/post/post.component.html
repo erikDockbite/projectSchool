@@ -1,0 +1,25 @@
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7">
+
+</head>
+
+<aside class="col-sm-8">
+  <div class="maincontent feedback">
+    <h2 class="article-title">Recent Stories</h2>
+    <div class="feedback-messages" *ngFor="let post of posts" >
+
+      <div class="feedback-item item-list media-list">
+        <div class="feedback-item media">
+          <div class="feedback-info media-body">
+            <div class="feedback-head">
+              <div class="feedback-title">{{post.username}} <small class="feedback-name label label-info"> {{TimeFromNow(post.created)}} </small></div>
+            </div>
+            <div class="feedback-message">{{post.post}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</aside>
