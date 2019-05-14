@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PostService } from 'src/app/services/post.service';
+import * as io from "socket.io-client";
 
 @Component({
   selector: 'app-post-form',
@@ -10,8 +11,12 @@ import { PostService } from 'src/app/services/post.service';
 export class PostFormComponent implements OnInit {
 
   postForm: FormGroup
+  socket: any
 
-  constructor(private fb: FormBuilder, private postService: PostService) { }
+  constructor(private fb: FormBuilder, private postService: PostService) {
+    this.socket = io('http://localhost:3000')
+  }
+  
 
   ngOnInit() {
     this.init();
@@ -27,6 +32,7 @@ export class PostFormComponent implements OnInit {
     this.postService.addPost(this.postForm.value).subscribe(data => {
       console.log(data)
       this.postForm.reset()
+      this.socket.emit('refresh', {});
     });
   }
 }
