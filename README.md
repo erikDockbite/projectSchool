@@ -19,7 +19,7 @@ Zodra de install gereed is ga je naar de client terminal en voer je de command '
 
 ### Opstarten
 
-Je kunt nu de app gebruiken. Open een browser en type in de zoek balk: localhost:4200 
+Je kunt nu de app gebruiken. Open een browser en type in de zoek balk: http://localhost:4200 
 
 ### Gebruik
 
